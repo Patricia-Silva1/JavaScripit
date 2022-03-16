@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Armazenando Cidade</title>
+    </head>
+    <body>
+		<div id="mensagem">
+        </div>
+	</body>
+    <script>
+        sessionStorage.clear(); // limpando a sessão
+        var usr = prompt('Informe a cidade:');
+        sessionStorage.setItem('cidade',usr);
+        msg = document.getElementById('mensagem');
+        msg.innerHTML = 
+            "Você informou a cidade <b>"+usr+"</b>";
+    </script>
+</html>

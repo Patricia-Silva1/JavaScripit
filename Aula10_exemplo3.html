@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chaves e Valores</title>
+    </head>
+    <body>
+		<div id="conteudo">
+        </div>
+	</body>
+    <script>
+        localStorage.clear();
+        localStorage.setItem('fruta','banana');
+        localStorage.setItem('animal','gato');
+        localStorage.setItem('objeto','telefone');
+        localStorage.setItem('cor','azul');
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let chave = localStorage.key(i);
+            let texto = chave+" -> "+localStorage.getItem(chave);
+            let parag = document.createElement('p');
+            parag.innerHTML = texto;
+            document.getElementById("conteudo").appendChild(parag);
+        }
+    </script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saudação Personalizada</title>
+    </head>
+    <body>
+		<div id="saudacao">
+        </div>
+        <br><br><br>
+		<div id="conteudo">
+        </div>
+        <br><br><br>
+		<div id="esquecer">
+        </div>
+	</body>
+    <script>
+        var nomeVisitante = '';
+        var qtdVisitas = 0;
+
+        if(sessionStorage.getItem('Lucas Silva ')){  
+            nomeVisitante = sessionStorage.getItem('nome');
+            qtdVisitas = parseInt(sessionStorage.getItem('visitas')) + 1;
+            sessionStorage.setItem('visitas',qtdVisitas);
+            msgConteudo = 'Você já visitou esta página '+qtdVisitas+' vezes. <br>'+
+                            'Ela já está em seus favoritos?';
+        } else {  
+            nomeVisitante = prompt('Qual o seu nome?');
+            sessionStorage.setItem('nome',nomeVisitante);
+            sessionStorage.setItem('visitas','1');
+            msgConteudo = 'Esta é sua primeira visita a esta página. Espero que goste.';
+        }
+        msgSaudacao = 'Olá, '+nomeVisitante;
+        document.getElementById('saudacao').innerHTML = msgSaudacao;
+        document.getElementById('conteudo').innerHTML = msgConteudo;
+        msgEsquecer = 'Se quiser que eu esqueça seu nome, aperte este botão ' +
+                            '<button onclick="apaga()">Esquecer</button><br><br>'+
+                            '<button onclick="location.reload()">Recarregar a Página</button>';
+        document.getElementById("esquecer").innerHTML = msgEsquecer;
+
+        function apaga() {
+            sessionStorage.removeItem('nome');
+            sessionStorage.removeItem('visitas');
+         
+        }
+    </script>
+</html>

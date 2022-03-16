@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Armazenando Cidade</title>
+    </head>
+    <body>
+		<div id="mensagem">
+        </div>
+	</body>
+    <script>
+        var cid = sessionStorage.getItem('cidade');
+        document.getElementById('mensagem').innerHTML = 
+                "Você informou a cidade <b>"+cid+"</b> na outra página";
+    </script>
+</html>

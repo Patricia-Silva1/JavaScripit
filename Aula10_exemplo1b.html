@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Armazenando Usuário</title>
+    </head>
+    <body>
+		<div id="mensagem">
+        </div>
+	</body>
+    <script>
+        var usr = localStorage.getItem('usuario');
+        document.getElementById('mensagem').innerHTML = 
+                "Você informou o usuário <b>"+usr+"</b> na outra página";
+    </script>
+</html>

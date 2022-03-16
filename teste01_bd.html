@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teste</title>
+    </head>    <body>
+		<h1>Criando um Banco de Dados Local</h1>
+		<script>
+			var bd = openDatabase("BdXavier","1.0","Meu Banco de Dados",4096);
+			bd.transaction (function (tr) {
+				tr.executeSql('DROP TABLE IF EXISTS TabAlunos;');
+			});
+			bd.transaction (function (tr) {
+				tr.executeSql('CREATE TABLE IF NOT EXISTS TabAlunos '+
+								'(matAlu, nomeAlu, cursoAlu)');
+			});
+			bd.transaction (function (tr) {
+				tr.executeSql('INSERT INTO TabAlunos VALUES (1, "Ana", "dev")');
+				tr.executeSql('INSERT INTO TabAlunos VALUES (2, "Pedro", "design")');
+				tr.executeSql('INSERT INTO TabAlunos VALUES (3, "Marta", "fotografia");');
+			});
+			
+	</script>
+	</body>
+</html>
